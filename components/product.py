@@ -30,28 +30,12 @@ class ProductList(tk.Frame):
           font="Helvetica 11 bold"
         ).grid(row=index, column=col, sticky="n", pady=(10,55))
 
-        # Price / Label frame
-        #tk.Frame(self.productGrid, width=125, height=50, bg="#ECECEC").grid(row=index, column=col, sticky="s")
-
         # Price
         priceFrame = tk.Frame(self.productGrid, bg="#ECECEC", width=30, height=10)
-        priceFrame.grid(row=index, column=col, sticky="sw", pady=(0, 22), padx=10)
+        priceFrame.grid(row=index, column=col, sticky="s", pady=(0, 22), padx=10)
         tk.Label(priceFrame, text="$", font=constants.PRICE_FONT, bg="#ECECEC").grid(row=index, column=col, sticky="sw")
         price = tk.Label(priceFrame, textvariable=product.price, fg=constants.TEXT_COLOR, font=constants.PRICE_FONT, bg="#ECECEC")
-        price.grid(row=index, column=col, sticky="sw", padx=(12, 0))
-
-        # Label
-        #name = tk.Label(self.productGrid, bg="#ECECEC", textvariable=product.name, font=("Helvetica 9"))
-        #name.grid(row=index, column=col, sticky="sw", pady=(0, 6), padx=10)
-
-        # Quantity Frame
-        #quantityFrame = tk.Frame(self.productGrid, bg="white", width=70, height=20)
-        #quantityFrame.grid(row=index, column=col, sticky="nw", pady=(8, 0), padx=10)
-
-        # Quantity
-        #tk.Label(quantityFrame, text="Qty:", bg="white").grid(row=index, column=col, sticky="w")
-        #quantity = tk.Label(quantityFrame, bg="white", textvariable=product.quantity)
-        #quantity.grid(row=index, column=col, sticky="e", padx=32)
+        price.grid(row=index, column=col, sticky="s", padx=(12, 0))
 
 
 # Class for product item
