@@ -40,7 +40,7 @@ while True:
     cart = response["cart"]
     paymentType = response["paymentType"]
 
-    subtotal = subtotal - (subtotal * (int(coupon[4:]) / 100)) if coupon else subtotal
+    subtotal = subtotal
 
     # Calculate the new card payment balance and return the changes if payment method is cash.
     newBalance = balance - subtotal
