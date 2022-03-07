@@ -35,7 +35,7 @@ class ProductList(tk.Frame):
         priceFrame.grid(row=index, column=col, sticky="s", pady=(0, 22), padx=10)
         tk.Label(priceFrame, text="$", font=constants.PRICE_FONT, bg="#ECECEC").grid(row=index, column=col, sticky="sw")
         price = tk.Label(priceFrame, textvariable=product.price, fg=constants.TEXT_COLOR, font=constants.PRICE_FONT, bg="#ECECEC")
-        price.grid(row=index, column=col, sticky="s", padx=(12, 0))
+        price.grid(row=index, column=col, sticky="s", padx=(0, 0))
 
 
 # Class for product item
