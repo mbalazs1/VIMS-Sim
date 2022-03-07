@@ -2,7 +2,7 @@ import pickle
 import socket
 import threading
 from time import sleep
-from random import randint
+#from random import randint
 import configs.screen as screen
 from configs.constants import PORT, HOST
 from utils.typewriter import typerwriter
@@ -47,14 +47,12 @@ def processPayment(c, newBalance, paymentMethod):
 # Handle transactions, calculate changes and update account balance 
 def finishAndPay(c, balance, paymentMethod):
   subtotal = c.subtotal.get()
- # coupon = c.coupon
+
 
   client_socket.send(pickle.dumps({
     "type": "createTransaction",
     "cart": c.basket,
     "balance": balance,
-  #  "coupon": coupon["coupon"] if coupon else None,
-  #  "couponID": coupon.doc_id if coupon else None,
     "subtotal": float(subtotal),
     "paymentType": paymentMethod
   }))
@@ -66,7 +64,7 @@ def finishAndPay(c, balance, paymentMethod):
   c.basket = {}
   c.subtotal.set(0)
   c.cart.set(0)
-  #c.coupon = None
+
 
   # If the server request is successful, the client should be updated.
   if response["success"] == True:
@@ -84,15 +82,6 @@ def finishAndPay(c, balance, paymentMethod):
     c.stage = screen.CODE
     return False
 
-# GET request for coupons
-#def getCoupons():
-#  pickle_object = pickle.dumps({ "type": "getCoupons" })
-#  client_socket.send(pickle_object)
-
-#  data = client_socket.recv(1024)
-#  response = pickle.loads(data)
-#  return response
-
 # GET request for inventory
 def getInventory():
   pickle_object = pickle.dumps({ "type": "getInventory" })
@@ -102,16 +91,7 @@ def getInventory():
   response = pickle.loads(data)
   return response
 
-# Update lottery ticket balance after any purchases
-#def updateTicketBalance():
-#  pickle_object = pickle.dumps({ "type": "updateTicketBalance" })
-#  client_socket.send(pickle_object)
-
-#  data = client_socket.recv(1024)
-#  response = pickle.loads(data)
- # return response
-
-# Update account balance 
+# Update account balance
 def updateAccountBalance(c, newBalance):
   pickle_object = pickle.dumps({
     "type": "updateAccountBalance",
@@ -124,20 +104,3 @@ def updateAccountBalance(c, newBalance):
   if response["success"]:
     c.coinBalance.set(round(newBalance, 2))
   return response
-
-# Coupon generator
-#def generateCoupon(dis=None):
-#  discounts = [ 5, 10, 15, 25, 50 ]
-  # If the VM has not defined a discount value, one will be produced automatically
-#  if dis == None:
-#    gen = discounts[randint(0, len(discounts)-1)]
- # else:
- #   gen = dis
-
- # coupon = "SAVE" + str(gen)
-#  data = { "type": "generateCoupon", "coupon": coupon }
-
-#  pickle_object = pickle.dumps(data)
-#  client_socket.send(pickle_object)
-
- # return coupon

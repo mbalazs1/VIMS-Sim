@@ -41,7 +41,7 @@ class Controller(tk.Tk):
     self.container.pack()
 
     coinBalance = accountDB.get(Query().id == 1)["balance"]
-    ticketBalance = accountDB.get(Query().id == 1)["lotteryTickets"]
+  #  ticketBalance = accountDB.get(Query().id == 1)["lotteryTickets"]
 
     self.products = []
 
@@ -52,14 +52,14 @@ class Controller(tk.Tk):
     self.stage = screen.CODE
 
     self.coin         = tk.PhotoImage(file="assets/icons/coin.png")
-    self.ticket       = tk.PhotoImage(file="assets/icons/ticket.png")
+    #self.ticket       = tk.PhotoImage(file="assets/icons/ticket.png")
     self.chartImage   = tk.PhotoImage(file="assets/icons/chart.png")
     self.productImage = tk.PhotoImage(file="assets/icons/product.png")
-    self.lotteryImage = tk.PhotoImage(file="assets/icons/lottery.png")
+    #self.lotteryImage = tk.PhotoImage(file="assets/icons/lottery.png")
 
     self.cart          = tk.IntVar(self.container, 0)
     self.coinBalance   = tk.DoubleVar(self.container, coinBalance)
-    self.ticketBalance = tk.IntVar(self.container, ticketBalance)
+   # self.ticketBalance = tk.IntVar(self.container, ticketBalance)
     self.screenMessage = tk.StringVar(self.container, "")
 
     self.locked = False

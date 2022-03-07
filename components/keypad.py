@@ -6,7 +6,7 @@ from functools import partial
 import configs.screen as screen
 import configs.constants as constants
 
-from connector import finishAndPay#, updateTicketBalance
+#from connector import finishAndPay
 from components.display import Display
 from windows.cart import cartWindow
 from wrappers.keypad import lockerWrapper
@@ -127,20 +127,20 @@ class Keypad(tk.Frame):
 
       # ***** STAGE 4: PAY (Cash transaction only) *****
       # Note: Card payments are made directly via the receipt window. Users are not required to enter payment details.
-      elif c.stage == screen.PAY_CASH:
+      #elif c.stage == screen.PAY_CASH:
         # The server handles all transaction procedures. This involves things like dealing
         # with changes and updating the balance.
-        c.toggleLock(True)
-        cash = c.screenMessage.get()
-        try:
-          success = finishAndPay(c, float(cash), "cash")
-          if success:
+        #c.toggleLock(True)
+        #cash = c.screenMessage.get()
+        #try:
+          #success = finishAndPay(c, float(cash), "cash")
+          #if success:
             # The server returns results, which are then edited on the client side.
-            response = updateTicketBalance()
-            if response["success"]: c.ticketBalance.set(c.ticketBalance.get() + 1)
-        except ValueError:
-          threading.Thread(target=errorMessageResolver, args=(c, "Invalid Cash",)).start()
-          playSoundEffect(4)
+          #  response = updateTicketBalance()
+        #    if response["success"]: c.ticketBalance.set(c.ticketBalance.get() + 1)
+       # except ValueError:
+        #  threading.Thread(target=errorMessageResolver, args=(c, "Invalid Cash",)).start()
+        #  playSoundEffect(4)
 
     # Generate the buttons on the screen 
     for row in range(len(self.buttons)):

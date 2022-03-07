@@ -4,7 +4,7 @@ from functools import partial
 import configs.constants as constants
 from windows.inventory import inventoryWindow
 from windows.product import productsWindow
-#from windows.lottery import lotteryWindow
+
 
 # Toolbar button class for re-use
 class ToolbarButton(tk.Button):
@@ -47,12 +47,3 @@ class Toolbar:
       activebackground=constants.PRODUCTS_HOVER,
     ).pack(fill="x", pady=(0, 4))
 
-    # Lottery button
-    #ToolbarButton(
-    #  self.container,
-    #  text="Lottery",
-    #  command=partial(lotteryWindow, parent, c),
-    #  image=c.lotteryImage,
-    #  bg=constants.LOTTERY_BG,
-    #  activebackground=constants.LOTTERY_HOVER,
-    #).pack(fill="x", pady=(0, 4))
