@@ -13,7 +13,7 @@ from configs.constants import PORT, HOST
 
 
 
-couponDB     = TinyDB("database/coupon.json")
+#couponDB     = TinyDB("database/coupon.json")
 productDB    = TinyDB("database/product.json")
 accountDB    = TinyDB("database/account.json")
 transationDB = TinyDB("database/transaction.json")
@@ -23,7 +23,7 @@ server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 server.listen()
 socket_client, (host, port) = server.accept()
-print(f'🚀 Server is now running on port {PORT} 🚀')
+print(f'Server is now running on port {PORT}')
 
 
 
@@ -78,24 +78,24 @@ while True:
         "message": "Not Enough\nMoney"
       }))
 
-  if response["type"] == "getCoupons":
-    coupons = couponDB.all()
-    data = {}
-    if coupons:
-      data = {
-        "success": True,
-        "message": None,
-        "size": len(coupons),
-        "coupons": coupons
-      }
-    else:
-      data = {
-        "success": False,
-        "message": "You don't have any coupons with you. Play the lottery to increase your chances of winning.",
-        "size": 0,
-        "coupons": []
-      }
-    socket_client.send(pickle.dumps(data))
+  #if response["type"] == "getCoupons":
+  #  coupons = couponDB.all()
+  #  data = {}
+   # if coupons:
+    #  data = {
+     #   "success": True,
+      #  "message": None,
+       # "size": len(coupons),
+        #"coupons": coupons
+      #}
+    #else:
+    #  data = {
+    #    "success": False,
+    #    "message": "You don't have any coupons with you. Play the lottery to increase your chances of winning.",
+     #   "size": 0,
+     #   "coupons": []
+     # }
+    #socket_client.send(pickle.dumps(data))
 
   if response["type"] == "getInventory":
     products = productDB.all()
@@ -139,14 +139,14 @@ while True:
     success = accountDB.update({"balance": round(response["newBalance"], 2)}, doc_ids=[1])
     socket_client.send(pickle.dumps({ "success": True if success else False }))
 
-  if response["type"] == "updateTicketBalance":
-    success = accountDB.update(increment("lotteryTickets"), doc_ids=[1])
-    socket_client.send(pickle.dumps({ "success": True if success else False }))
+  #if response["type"] == "updateTicketBalance":
+   # success = accountDB.update(increment("lotteryTickets"), doc_ids=[1])
+    #socket_client.send(pickle.dumps({ "success": True if success else False }))
 
-  if response["type"] == "generateCoupon":
-    today = datetime.now()
+  #if response["type"] == "generateCoupon":
+  #  today = datetime.now()
 
-    couponDB.insert({
-      'coupon': response["coupon"],
-      'timestamp': str(today) 
-    })
+  #  couponDB.insert({
+  #   'coupon': response["coupon"],
+  #    'timestamp': str(today)
+  #  })
