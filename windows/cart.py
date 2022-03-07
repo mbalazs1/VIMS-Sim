@@ -162,6 +162,6 @@ def cartWindow(config):
   #  activebackground=constants.COUPON_BTN_HOVER,
   #  image=couponIcon
   #).pack(fill="both", expand=True)
-
+  # Test
   newWindow.transient(parent)
   newWindow.grab_set()
