@@ -14,8 +14,9 @@ https://github.com/w1am/Vending-Machine
 |playsound | 1.3.0 |
 |numpy | 1.22.2 |
 |matplotlib | 3.5.1 |
+|mysql-connector-python | 8.0.28 |
 
-    pip install tinydb, playsound, numpy, matplotlib
+    pip install tinydb, playsound, numpy, matplotlib, mysql-connector-python
 
 **How to Run**
 
