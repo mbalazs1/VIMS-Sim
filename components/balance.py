@@ -15,5 +15,5 @@ class Balance(tk.Frame):
     self.ticketFrame = tk.Frame(self, height=20, width=70, bg="white")
     self.ticketFrame.pack(pady=(0, 4), side="left")
 
-    tk.Label(self.ticketFrame, image=c.ticket, bg="white").pack(side="left")
-    tk.Label(self.ticketFrame, textvariable=c.ticketBalance, bg="white").pack(side="right")
+    #tk.Label(self.ticketFrame, image=c.ticket, bg="white").pack(side="left")
+    #tk.Label(self.ticketFrame, textvariable=c.ticketBalance, bg="white").pack(side="right")
