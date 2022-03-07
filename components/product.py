@@ -28,10 +28,10 @@ class ProductList(tk.Frame):
           bg="white",
           text=str(screen.PRODUCT_CODES[product.id]),
           font="Helvetica 11 bold"
-        ).grid(row=index, column=col, sticky="n", pady=(0,55))
+        ).grid(row=index, column=col, sticky="n", pady=(10,55))
 
         # Price / Label frame
-        tk.Frame(self.productGrid, width=125, height=50, bg="#ECECEC").grid(row=index, column=col, sticky="s")
+        #tk.Frame(self.productGrid, width=125, height=50, bg="#ECECEC").grid(row=index, column=col, sticky="s")
 
         # Price
         priceFrame = tk.Frame(self.productGrid, bg="#ECECEC", width=30, height=10)
