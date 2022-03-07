@@ -28,7 +28,7 @@ class ProductList(tk.Frame):
           bg="white",
           text=str(screen.PRODUCT_CODES[product.id]),
           font="Helvetica 11 bold"
-        ).grid(row=index, column=col, sticky="s", pady=(0,55))
+        ).grid(row=index, column=col, sticky="n", pady=(0,55))
 
         # Price / Label frame
         tk.Frame(self.productGrid, width=125, height=50, bg="#ECECEC").grid(row=index, column=col, sticky="s")
@@ -52,7 +52,7 @@ class ProductList(tk.Frame):
         #tk.Label(quantityFrame, text="Qty:", bg="white").grid(row=index, column=col, sticky="w")
         #quantity = tk.Label(quantityFrame, bg="white", textvariable=product.quantity)
         #quantity.grid(row=index, column=col, sticky="e", padx=32)
-        
+
 
 # Class for product item
 class ProductItem:
