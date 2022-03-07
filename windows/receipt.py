@@ -23,7 +23,7 @@ def receiptWindow(config, parent, c):
   infoFrame.pack()
 
   # Receipt header
-  tk.Label(infoFrame, text="Burger Vending Machine", bg="white", font=constants.SUB_HEADER).pack()
+  tk.Label(infoFrame, text="Soda Vending Machine", bg="white", font=constants.SUB_HEADER).pack()
   tk.Label(infoFrame, text="*" * 43, bg="white").pack()
 
   # Table Frames
@@ -49,11 +49,12 @@ def receiptWindow(config, parent, c):
   tk.Label(priceFrame, text=str(f"${round(subtotal, 2)}"), bg="white", anchor="w").pack(fill="x", expand=True, pady=(8, 0))
 
   # Coupon
-  tk.Label(nameFrame, text="Coupon", bg="white", anchor="w").pack(fill="x", expand=True, pady=(8, 0))
-  tk.Label(priceFrame, text=coupon["coupon"] if coupon else "-", bg="white", anchor="w").pack(fill="x", expand=True, pady=(8, 0))
+  #tk.Label(nameFrame, text="Coupon", bg="white", anchor="w").pack(fill="x", expand=True, pady=(8, 0))
+  #tk.Label(priceFrame, text=coupon["coupon"] if coupon else "-", bg="white", anchor="w").pack(fill="x", expand=True, pady=(8, 0))
 
   # Discount
-  tk.Label(nameFrame, text="Discount", bg="white", anchor="w").pack(fill="x", expand=True)
+  #tk.Label(nameFrame, text="Discount", bg="white", anchor="w").pack(fill="x", expand=True)
+  #
   tk.Label(priceFrame, text=str(f"${round(discount, 2)}"), bg="white", anchor="w").pack(fill="x", expand=True)
 
   # Total
