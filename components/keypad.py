@@ -115,7 +115,7 @@ class Keypad(tk.Frame):
           # Reset amount for next purchase
           c.setAmount(0)
           cartWindow(config)
-          c.screenMessage.set("Enter Code")
+          c.screenMessage.set("Enter Item Code")
 
           c.toggleLock(False)
         else:
