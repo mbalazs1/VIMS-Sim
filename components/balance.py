@@ -6,7 +6,7 @@ class Balance(tk.Frame):
 
     # Coin balance
     self.balanceFrame = tk.Frame(self, height=20, width=70, bg="white")
-    self.balanceFrame.pack(pady=(0, 20), side="right")
+    self.balanceFrame.pack(padx=(20, 0), pady=(0, 4), side="right")
 
     tk.Label(self.balanceFrame, image=c.coin, bg="white").pack(side="left")
     tk.Label(self.balanceFrame, textvariable=c.coinBalance, bg="white").pack(side="right")
