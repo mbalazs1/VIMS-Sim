@@ -2,6 +2,8 @@
 import socket
 import pickle
 #import tkinter as tk
+#from main import Controller
+#import components.keypad
 from tinydb import TinyDB
 from datetime import datetime, date
 from tinydb.operations import increment
@@ -41,7 +43,7 @@ while True:
     # Calculate the new card payment balance and return the changes if payment method is cash.
     newBalance = balance - subtotal
 
-    # Proceed if user user has enough money 
+    # Proceed if user has enough money
     if subtotal <= balance:
       # Decrement stock
       for product in cart.values():
@@ -57,7 +59,7 @@ while True:
       transactionID = transationDB.insert({
         "machineID": machineID,
         "timestamp": str(date.today()),
-        "cart" : cart.values,
+        #"cart" : ,
         #"product": product["name"],
         #"quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
