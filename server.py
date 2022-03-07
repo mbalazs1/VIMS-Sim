@@ -16,7 +16,7 @@ from configs.constants import PORT, HOST
 
 productDB    = TinyDB("database/product.json")
 accountDB    = TinyDB("database/account.json")
-transationDB = TinyDB("database/transaction.json")
+transactionDB = TinyDB("database/transaction.json")
 machineID    = 100001,
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -37,6 +37,7 @@ while True:
     subtotal = response["subtotal"]
     cart = response["cart"]
     paymentType = response["paymentType"]
+    error = response["Transaction Failed"]
 
     subtotal = subtotal
 
@@ -56,14 +57,17 @@ while True:
         accountDB.update({ "balance": round(newBalance, 2) }, doc_ids=[1])
 
       # Log trasaction
-      transactionID = transationDB.insert({
+      transactionID = transactionDB.insert({
         "machineID": machineID,
         "timestamp": str(date.today()),
         #"cart" : ,
         #"product": product["name"],
         #"quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
-        "change": round(newBalance, 2)
+       # if response["type"] == "Transaction Failed":
+       #   "error" : "Transaction Failed"
+       # else:
+       # "change": round(newBalance, 2);
       })
 
       socket_client.send(pickle.dumps({

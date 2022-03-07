@@ -44,12 +44,10 @@ class Keypad(tk.Frame):
             "parent": parent,
         "controller": c,
       "continueIcon": tk.PhotoImage(file="assets/icons/continue.png"),
-      #  "checkImage": tk.PhotoImage(file="assets/icons/tick.png"),
            "payIcon": tk.PhotoImage(file="assets/icons/payIcon.png"),
        "payCashIcon": tk.PhotoImage(file="assets/icons/payCash.png"),
        "payCardIcon": tk.PhotoImage(file="assets/icons/payCard.png"),
         "cancelIcon": tk.PhotoImage(file="assets/icons/cancel.png"),
-      #  "couponIcon": tk.PhotoImage(file="assets/icons/coupon.png")
     }
 
     @lockerWrapper
@@ -96,7 +94,6 @@ class Keypad(tk.Frame):
               previous = c.basket[c.selected.id]["price"] * c.basket[c.selected.id]["amount"]
               c.updateSubtotal(previous*-1)
               c.updateSubtotal(c.selected.price.get() * c.amount)
-
               previousCart = c.basket[c.selected.id]["amount"]
               c.cart.set((c.cart.get()-previousCart) + c.amount)
           except KeyError:
@@ -134,10 +131,7 @@ class Keypad(tk.Frame):
         cash = c.screenMessage.get()
         try:
           success = finishAndPay(c, float(cash), "cash")
-          #if success:
-            # The server returns results, which are then edited on the client side.
-          #  response = updateTicketBalance()
-        #    if response["success"]: c.ticketBalance.set(c.ticketBalance.get() + 1)
+
         except ValueError:
           threading.Thread(target=errorMessageResolver, args=(c, "Invalid Cash",)).start()
           playSoundEffect(4)
