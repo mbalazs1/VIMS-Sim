@@ -1,6 +1,5 @@
 # pyright: reportMissingImports=false
 import tkinter as tk
-
 import configs.screen as screen
 import configs.constants as constants
 from connector import finishAndPay

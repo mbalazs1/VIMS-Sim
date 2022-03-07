@@ -2,7 +2,6 @@ import pickle
 import socket
 import threading
 from time import sleep
-#from random import randint
 import configs.screen as screen
 from configs.constants import PORT, HOST
 from utils.typewriter import typerwriter
