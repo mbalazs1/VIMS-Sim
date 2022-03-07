@@ -41,8 +41,8 @@ class ProductList(tk.Frame):
         price.grid(row=index, column=col, sticky="e", padx=(12, 0))
 
         # Label
-        name = tk.Label(self.productGrid, bg="#ECECEC", textvariable=product.name, font=("Helvetica 9"))
-        name.grid(row=index, column=col, sticky="sw", pady=(0, 6), padx=10)
+        #name = tk.Label(self.productGrid, bg="#ECECEC", textvariable=product.name, font=("Helvetica 9"))
+        #name.grid(row=index, column=col, sticky="sw", pady=(0, 6), padx=10)
 
         # Quantity Frame
         #quantityFrame = tk.Frame(self.productGrid, bg="white", width=70, height=20)
