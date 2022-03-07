@@ -28,8 +28,8 @@ def lotteryWindow(parent, c):
   # Ticket balance
   ticketFrame = tk.Frame(newWindow, height=20, width=70, bg="white")
   ticketFrame.pack(pady=10, padx=10, anchor="e")
-  tk.Label(ticketFrame, image=c.ticket, bg="white").pack(side="left")
-  tk.Label(ticketFrame, textvariable=c.ticketBalance, bg="white").pack(side="right")
+  #tk.Label(ticketFrame, image=c.ticket, bg="white").pack(side="left")
+  #tk.Label(ticketFrame, textvariable=c.ticketBalance, bg="white").pack(side="right")
 
   frame = tk.Frame(newWindow, bg="#373C40", padx=8, pady=8)
   frame.pack(fill="x")
