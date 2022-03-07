@@ -55,9 +55,9 @@ while True:
       transactionID = transationDB.insert({
         "machineID": machineID,
         "timestamp": str(date.today()),
-        #"cart" : c.basket,
-        "product": product["name"],
-        "quantity": product["amount"],
+        "cart" : cart.values,
+        #"product": product["name"],
+        #"quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
         "change": round(newBalance, 2)
       })
