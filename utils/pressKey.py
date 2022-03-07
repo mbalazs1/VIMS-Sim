@@ -11,8 +11,7 @@ getSound = lambda button : playSoundEffect(1) if button == "CLR" else playSoundE
 @lockerWrapper
 def pressKey(c, parent, button):
   subtotal = c.subtotal.get()
-  discount = round(subtotal * (int(c.coupon["coupon"][4:]) / 100) if c.coupon else 0, 2)
-  charge = round(subtotal - discount, 2)
+  charge = round(subtotal, 2)
 
   if button == screen.HELP:
     # Open help window

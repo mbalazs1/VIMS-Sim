@@ -28,9 +28,9 @@ cnx = mysql.connector.connect(user='admin', password='password',
                               host='machines-database.cvczlcshulp9.us-east-2.rds.amazonaws.com',
                               database='machines_database')
 if (cnx.is_connected()):
-    print("mySQL Database is Connected")
+    print("SQL Database Connected")
 else:
-    print("mySQL Database is NOT connected")
+    print("SQL Database is NOT connected")
 
 #  ------- Controller -------
 class Controller(tk.Tk):
