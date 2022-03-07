@@ -34,11 +34,11 @@ class ProductList(tk.Frame):
         tk.Frame(self.productGrid, width=125, height=50, bg="#ECECEC").grid(row=index, column=col, sticky="s")
 
         # Price
-        priceFrame = tk.Frame(self.productGrid, bg="#ECECEC", width=70, height=20)
+        priceFrame = tk.Frame(self.productGrid, bg="#ECECEC", width=30, height=10)
         priceFrame.grid(row=index, column=col, sticky="sw", pady=(0, 22), padx=10)
-        tk.Label(priceFrame, text="$", font=constants.PRICE_FONT, bg="#ECECEC").grid(row=index, column=col, sticky="w")
+        tk.Label(priceFrame, text="$", font=constants.PRICE_FONT, bg="#ECECEC").grid(row=index, column=col, sticky="sw")
         price = tk.Label(priceFrame, textvariable=product.price, fg=constants.TEXT_COLOR, font=constants.PRICE_FONT, bg="#ECECEC")
-        price.grid(row=index, column=col, sticky="e", padx=(12, 0))
+        price.grid(row=index, column=col, sticky="sw", padx=(12, 0))
 
         # Label
         #name = tk.Label(self.productGrid, bg="#ECECEC", textvariable=product.name, font=("Helvetica 9"))
