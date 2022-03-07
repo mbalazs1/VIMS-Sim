@@ -34,8 +34,6 @@ while True:
 
   if response["type"] == "createTransaction":
     balance = response["balance"]
-#    coupon = response["coupon"]
-#    couponID = response["couponID"]
     subtotal = response["subtotal"]
     cart = response["cart"]
     paymentType = response["paymentType"]
@@ -57,18 +55,13 @@ while True:
       if paymentType == "card":
         accountDB.update({ "balance": round(newBalance, 2) }, doc_ids=[1])
 
-      # Delete coupon
-      #if coupon:
-      #  couponDB.remove(doc_ids=[couponID])
-
       # Log trasaction
       transactionID = transationDB.insert({
         "machineID": machineID,
         "timestamp": str(date.today()),
+        "product": product["name"],
+        "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
-      #  "coupon": coupon,
-      #  "discount": round(subtotal * (int(coupon[4:]) / 100) if coupon else 0, 2),
-      #  "cart": cart,
         "change": round(newBalance, 2)
       })
 
