@@ -5,7 +5,8 @@ from tinydb import TinyDB
 from datetime import datetime, date
 from tinydb.operations import increment
 from configs.constants import PORT, HOST
-#import mysql.connector
+#from connector import finishAndPay
+import mysql.connector
 
 
 couponDB     = TinyDB("database/coupon.json")
@@ -13,19 +14,19 @@ productDB    = TinyDB("database/product.json")
 accountDB    = TinyDB("database/account.json")
 transationDB = TinyDB("database/transaction.json")
 machineID    = 100001,
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 server.listen()
 socket_client, (host, port) = server.accept()
 print(f'🚀 Server is now running on port {PORT} 🚀')
 
 # mySQL machine database:
-#cnx = mysql.connector.connect(host='machines-database.cvczlcshulp9.us-east-2.rds.amazonaws.com',
-#                              user='admin',
-#                              password='password',
-#                              database='machines_database')
-#cnx.close()
+cnx = mysql.connector.connect(host='machines-database.cvczlcshulp9.us-east-2.rds.amazonaws.com',
+                              user='admin',
+                              password='password',
+                              database='machines_database')
+cnx.close()
 
 while True:
   data = socket_client.recv(1024)
@@ -59,6 +60,7 @@ while True:
       transactionID = transationDB.insert({
         "machineID": machineID,
         "timestamp": str(date.today()),
+        #"cart" : c.basket,
         "product": product["name"],
         "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
