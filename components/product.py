@@ -45,13 +45,13 @@ class ProductList(tk.Frame):
         name.grid(row=index, column=col, sticky="sw", pady=(0, 6), padx=10)
 
         # Quantity Frame
-        quantityFrame = tk.Frame(self.productGrid, bg="white", width=70, height=20)
-        quantityFrame.grid(row=index, column=col, sticky="nw", pady=(8, 0), padx=10)
+        #quantityFrame = tk.Frame(self.productGrid, bg="white", width=70, height=20)
+        #quantityFrame.grid(row=index, column=col, sticky="nw", pady=(8, 0), padx=10)
 
         # Quantity
-        tk.Label(quantityFrame, text="Qty:", bg="white").grid(row=index, column=col, sticky="w")
-        quantity = tk.Label(quantityFrame, bg="white", textvariable=product.quantity)
-        quantity.grid(row=index, column=col, sticky="e", padx=32)
+        #tk.Label(quantityFrame, text="Qty:", bg="white").grid(row=index, column=col, sticky="w")
+        #quantity = tk.Label(quantityFrame, bg="white", textvariable=product.quantity)
+        #quantity.grid(row=index, column=col, sticky="e", padx=32)
         
 
 # Class for product item

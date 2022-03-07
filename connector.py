@@ -22,7 +22,7 @@ def onError(c, message):
 
 # Good bye messages
 def goodbye(c):
-  messages = ["Thank you.", "\nGoodbye :)"]
+  messages = ["Thank you.", "Goodbye :)"]
   typerwriter(c, messages)
   c.stage = screen.CODE
 
@@ -53,8 +53,8 @@ def finishAndPay(c, balance, paymentMethod):
     "type": "createTransaction",
     "cart": c.basket,
     "balance": balance,
-    "coupon": coupon["coupon"] if coupon else None,
-    "couponID": coupon.doc_id if coupon else None,
+    #"coupon": coupon["coupon"] if coupon else None,
+    #"couponID": coupon.doc_id if coupon else None,
     "subtotal": float(subtotal),
     "paymentType": paymentMethod
   }))
