@@ -39,7 +39,7 @@ def cartWindow(config):
   payIcon      = config["payIcon"]
   cancelIcon   = config["cancelIcon"]
   continueIcon = config["continueIcon"]
-  couponIcon   = config["couponIcon"]
+
 
   newWindow = tk.Toplevel(parent)
   newWindow.title("Cart")
