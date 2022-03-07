@@ -27,11 +27,10 @@ sounds = {
 cnx = mysql.connector.connect(user='admin', password='password',
                               host='machines-database.cvczlcshulp9.us-east-2.rds.amazonaws.com',
                               database='machines_database')
-cnx.close()
 if (cnx.is_connected()):
-    print("Connected")
+    print("mySQL Database is Connected")
 else:
-    print("Not connected")
+    print("mySQL Database is NOT connected")
 
 #  ------- Controller -------
 class Controller(tk.Tk):
