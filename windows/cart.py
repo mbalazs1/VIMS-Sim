@@ -124,7 +124,7 @@ def cartWindow(config):
   # Add another button
   CartButton(
     top,
-    text="Add Another",
+    text="Add Another Soda",
     command=addAnother,
     bg=constants.ADD_ANOTHER_BG,
     activebackground=constants.ADD_ANOTHER_HOVER,
