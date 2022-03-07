@@ -6,7 +6,7 @@ from PIL import Image, ImageTk
 
 class ProductList(tk.Frame):
   def __init__(self, parent, c):
-    tk.Frame.__init__(self, parent, bg="red", width=375, height=600)
+    tk.Frame.__init__(self, parent, bg="white", width=375, height=600)
     # Products from database
     self.products = c.products
 
@@ -14,7 +14,7 @@ class ProductList(tk.Frame):
     self.productGrid = tk.Frame(self, bg="white", width=375, height=600)
     self.productGrid.grid()
 
-    # 3 rows in total
+    # 2 rows in total
     for index in range(3):
       # Each row consists of 3 products / columns
       row = self.products[index*3:(index*3) + 3]
