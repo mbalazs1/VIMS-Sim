@@ -3,13 +3,13 @@ import tkinter as tk
 
 import configs.screen as screen
 import configs.constants as constants
-from connector import finishAndPay, updateTicketBalance
+from connector import finishAndPay#, updateTicketBalance
 
 def receiptWindow(config, parent, c):
   basket      = c.basket
-  coupon      = c.coupon
+ # coupon      = c.coupon
   subtotal    = c.subtotal.get()
-  discount    = round(subtotal * (int(coupon["coupon"][4:]) / 100) if coupon else 0, 2)
+ # discount    = round(subtotal * (int(coupon["coupon"][4:]) / 100) if coupon else 0, 2)
   payCashIcon = config["payCashIcon"]
   payCardIcon = config["payCardIcon"]
 
@@ -48,7 +48,8 @@ def receiptWindow(config, parent, c):
   tk.Label(nameFrame, text="Subtotal", bg="white", anchor="w", font=constants.SUB_HEADER).pack(fill="x", expand=True, pady=(12, 0))
   tk.Label(
     priceFrame,
-    text=str(f"${round(subtotal - discount, 2)}") if coupon else str(f"${round(subtotal, 2)}"),
+    text=str(f"${round(subtotal, 2)}"),
+    #(f"${round(subtotal - discount, 2)}") if coupon else
     bg="white",
     anchor="w"
   ).pack(fill="x", expand=True, pady=(12, 0))
@@ -58,13 +59,13 @@ def receiptWindow(config, parent, c):
     success = finishAndPay(c, c.coinBalance.get(), "card")
     newWindow.destroy()
     newWindow.update()
-    if success:
-      response = updateTicketBalance()
-      if response["success"]: c.ticketBalance.set(c.ticketBalance.get() + 1)
+    #if success:
+    #  response = updateTicketBalance()
+    #  if response["success"]: c.ticketBalance.set(c.ticketBalance.get() + 1)
 
   # Pay with cash method
   def payWithCash():
-    charge = round(subtotal - discount, 2)
+    charge = round(subtotal, 2)#round(subtotal - discount, 2)
     c.screenMessage.set(f"Please Insert Cash\n${str(charge)}")
     c.stage = screen.PAY_CASH
     newWindow.destroy()

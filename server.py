@@ -6,7 +6,7 @@ import pickle
 #import components.keypad
 from tinydb import TinyDB
 from datetime import datetime, date
-from tinydb.operations import increment
+#from tinydb.operations import increment
 from configs.constants import PORT, HOST
 #from windows.receipt import receiptWindow
 #from connector import finishAndPay
