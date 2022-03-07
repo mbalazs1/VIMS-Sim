@@ -58,8 +58,8 @@ while True:
         accountDB.update({ "balance": round(newBalance, 2) }, doc_ids=[1])
 
       # Delete coupon
-      if coupon:
-        couponDB.remove(doc_ids=[couponID])
+      #if coupon:
+      #  couponDB.remove(doc_ids=[couponID])
 
       # Log trasaction
       transactionID = transationDB.insert({
