@@ -44,12 +44,12 @@ class Keypad(tk.Frame):
             "parent": parent,
         "controller": c,
       "continueIcon": tk.PhotoImage(file="assets/icons/continue.png"),
-        "checkImage": tk.PhotoImage(file="assets/icons/tick.png"),
+      #  "checkImage": tk.PhotoImage(file="assets/icons/tick.png"),
            "payIcon": tk.PhotoImage(file="assets/icons/payIcon.png"),
        "payCashIcon": tk.PhotoImage(file="assets/icons/payCash.png"),
        "payCardIcon": tk.PhotoImage(file="assets/icons/payCard.png"),
         "cancelIcon": tk.PhotoImage(file="assets/icons/cancel.png"),
-        "couponIcon": tk.PhotoImage(file="assets/icons/coupon.png")
+      #  "couponIcon": tk.PhotoImage(file="assets/icons/coupon.png")
     }
 
     @lockerWrapper
