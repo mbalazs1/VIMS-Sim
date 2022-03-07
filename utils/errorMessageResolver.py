@@ -6,8 +6,7 @@ from utils.loader import blink
 # an  number error, or a button error.
 def errorMessageResolver(c, message):
   subtotal = c.subtotal.get()
-  discount = round(subtotal * (int(c.coupon["coupon"][4:]) / 100) if c.coupon else 0, 2)
-  charge = round(subtotal - discount, 2)
+  charge = round(subtotal, 2)
   blink(c, message)
   if c.stage == screen.CODE: c.screenMessage.set("Enter Item Code")
   if c.stage == screen.AMOUNT: c.screenMessage.set("Enter Quantity")
