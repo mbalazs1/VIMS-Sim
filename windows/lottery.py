@@ -11,7 +11,7 @@ from connector import updateAccountBalance
 from utils.playSound import playSoundEffect
 
 import configs.constants as constants
-from connector import generateCoupon
+#from connector import generateCoupon
 
 accountDB = TinyDB("database/account.json")
 couponDB = TinyDB("database/coupon.json")

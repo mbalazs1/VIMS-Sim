@@ -4,7 +4,7 @@ from functools import partial
 import configs.constants as constants
 from windows.inventory import inventoryWindow
 from windows.product import productsWindow
-from windows.lottery import lotteryWindow
+#from windows.lottery import lotteryWindow
 
 # Toolbar button class for re-use
 class ToolbarButton(tk.Button):
