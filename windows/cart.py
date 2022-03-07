@@ -2,8 +2,8 @@
 import tkinter as tk
 from utils.typewriter import typerwriter
 from windows.receipt import receiptWindow
-from windows.coupon import couponWindow
-from functools import partial
+#from windows.coupon import couponWindow
+#from functools import partial
 from tinydb import TinyDB
 
 import configs.constants as constants
@@ -154,14 +154,14 @@ def cartWindow(config):
   ).pack(fill="both", expand=True)
 
   # Coupon Button
-  CartButton(
-    bottom,
-    command=partial(couponWindow, newWindow, c),
-    text="Apply Coupon Code",
-    bg=constants.COUPON_BTN_BG,
-    activebackground=constants.COUPON_BTN_HOVER,
-    image=couponIcon
-  ).pack(fill="both", expand=True)
+  #CartButton(
+  #  bottom,
+  #  command=partial(couponWindow, newWindow, c),
+  # text="Apply Coupon Code",
+  #  bg=constants.COUPON_BTN_BG,
+  #  activebackground=constants.COUPON_BTN_HOVER,
+  #  image=couponIcon
+  #).pack(fill="both", expand=True)
 
   newWindow.transient(parent)
   newWindow.grab_set()
