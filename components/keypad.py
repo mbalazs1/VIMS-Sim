@@ -57,7 +57,7 @@ class Keypad(tk.Frame):
       playSoundEffect(3)
 
       # When no code is entered, return to cart window 
-      if c.screenMessage.get() == "Enter Code" and c.stage == screen.CODE:
+      if c.screenMessage.get() == "Enter Item Code" and c.stage == screen.CODE:
         cartWindow(config)
         return
 
@@ -115,7 +115,7 @@ class Keypad(tk.Frame):
           # Reset amount for next purchase
           c.setAmount(0)
           cartWindow(config)
-          c.screenMessage.set("Enter Code")
+          c.screenMessage.set("Enter Item Code")
 
           c.toggleLock(False)
         else:

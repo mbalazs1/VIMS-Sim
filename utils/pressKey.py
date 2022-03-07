@@ -23,14 +23,14 @@ def pressKey(c, parent, button):
   elif button == screen.CLEAR:
     threading.Thread(target=getSound, args=(button,)).start()
     if c.screenMessage.get() == "Enter Amount":
-      c.screenMessage.set("Enter Code")
+      c.screenMessage.set("Enter Item Code")
       c.stage = screen.CODE
     elif c.stage == screen.AMOUNT:
       c.screenMessage.set("Enter Amount")
     elif c.stage == screen.PAY_CASH:
       c.screenMessage.set(f"Please Insert Cash\n${str(charge)}")
     else:
-      c.screenMessage.set("Enter Code")
+      c.screenMessage.set("Enter Item Code")
       c.stage = screen.CODE
     c.toggleLock(False)
 
@@ -38,7 +38,7 @@ def pressKey(c, parent, button):
   else:
     threading.Thread(target=getSound, args=("",)).start()
     previous = c.screenMessage.get()
-    messages = ("Enter Code", "Enter Amount", f"Please Insert Cash\n${str(charge)}")
+    messages = ("Enter Item Code", "Enter Amount", f"Please Insert Cash\n${str(charge)}")
     if previous in messages:
       c.screenMessage.set(button)
     else:
