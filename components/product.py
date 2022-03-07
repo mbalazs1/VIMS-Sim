@@ -20,7 +20,7 @@ class ProductList(tk.Frame):
       row = self.products[index*3:(index*3) + 3]
       for col, product in enumerate(row):
         # Product picture
-        tk.Label(self.productGrid, image=product.image, bd=0).grid(row=index, column=col)
+        tk.Label(self.productGrid, image=product.image, bd=0).grid(row=index, column=col, pady=50)
 
         # Product code
         tk.Label(
