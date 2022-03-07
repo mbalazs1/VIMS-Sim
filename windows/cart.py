@@ -157,7 +157,7 @@ def cartWindow(config):
   #CartButton(
   #  bottom,
   #  command=partial(couponWindow, newWindow, c),
-  # text="Apply Coupon Code",
+  #  text="Apply Coupon Code",
   #  bg=constants.COUPON_BTN_BG,
   #  activebackground=constants.COUPON_BTN_HOVER,
   #  image=couponIcon
