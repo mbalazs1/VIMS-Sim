@@ -22,9 +22,8 @@ socket_client, (host, port) = server.accept()
 print(f'🚀 Server is now running on port {PORT} 🚀')
 
 # mySQL machine database:
-cnx = mysql.connector.connect(host='machines-database.cvczlcshulp9.us-east-2.rds.amazonaws.com',
-                              user='admin',
-                              password='password',
+cnx = mysql.connector.connect(user='admin', password='password',
+                              host='machines-database.cvczlcshulp9.us-east-2.rds.amazonaws.com',
                               database='machines_database')
 cnx.close()
 
