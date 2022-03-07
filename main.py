@@ -96,7 +96,7 @@ class Controller(tk.Tk):
 
 def main():
   root = Controller()
-  root.title("Vending Machine")
+  root.title("VIMS Vending Machine Simulator")
   # Set default font to Helvetica
   root.option_add("*Font", "Helvetica")
   # Deisable resize

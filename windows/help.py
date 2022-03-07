@@ -10,11 +10,11 @@ def helpWindow(parent):
 
   frame = tk.Frame(newWindow, bg="white")
   frame.pack(padx=15)
-  tk.Label(frame, bg="white", text="How To Use Vending Machine", font=constants.HEADER).pack(pady=(20,8))
-  tk.Label(frame, bg="white", text="1. Enter the code of the item you wish to buy", anchor="w").pack(fill="x")
-  tk.Label(frame, bg="white", text="2. Enter amount", anchor="w").pack(fill="x")
+  tk.Label(frame, bg="white", text="How To Use The Vending Machine Simulator", font=constants.HEADER).pack(pady=(20,8))
+  tk.Label(frame, bg="white", text="1. Enter the code of the soda you wish to buy", anchor="w").pack(fill="x")
+  tk.Label(frame, bg="white", text="2. Enter quantity", anchor="w").pack(fill="x")
   tk.Label(frame, bg="white", text="3. Select payment method", anchor="w").pack(fill="x")
-  tk.Label(frame, bg="white", text="4. Take your change", anchor="w").pack(fill="x")
+  tk.Label(frame, bg="white", text="4. Take your change, if applicable", anchor="w").pack(fill="x")
 
   def close():
     newWindow.destroy()
@@ -24,7 +24,7 @@ def helpWindow(parent):
   tk.Button(
     newWindow,
     command=close,
-    text="Okay",
+    text="Close",
     bg=constants.SKY_BG, activebackground=constants.SKY_HOVER, fg="white",
     activeforeground="white",
     font=constants.COPY_FONT,
