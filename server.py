@@ -12,7 +12,7 @@ couponDB     = TinyDB("database/coupon.json")
 productDB    = TinyDB("database/product.json")
 accountDB    = TinyDB("database/account.json")
 transationDB = TinyDB("database/transaction.json")
-
+machineID    = 100001,
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 server.bind((HOST, PORT))
@@ -34,8 +34,8 @@ while True:
 
   if response["type"] == "createTransaction":
     balance = response["balance"]
-    coupon = response["coupon"]
-    couponID = response["couponID"]
+#    coupon = response["coupon"]
+#    couponID = response["couponID"]
     subtotal = response["subtotal"]
     cart = response["cart"]
     paymentType = response["paymentType"]
@@ -63,11 +63,12 @@ while True:
 
       # Log trasaction
       transactionID = transationDB.insert({
+        "machineID": machineID,
         "timestamp": str(date.today()),
         "subtotal": round(response["subtotal"], 2),
-        "coupon": coupon,
-        "discount": round(subtotal * (int(coupon[4:]) / 100) if coupon else 0, 2),
-        "cart": cart,
+      #  "coupon": coupon,
+      #  "discount": round(subtotal * (int(coupon[4:]) / 100) if coupon else 0, 2),
+      #  "cart": cart,
         "change": round(newBalance, 2)
       })
 
