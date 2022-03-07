@@ -53,8 +53,8 @@ def finishAndPay(c, balance, paymentMethod):
     "type": "createTransaction",
     "cart": c.basket,
     "balance": balance,
-    "coupon": coupon["coupon"] if coupon else None,
-    "couponID": coupon.doc_id if coupon else None,
+    #"coupon": coupon["coupon"] if coupon else None,
+    #"couponID": coupon.doc_id if coupon else None,
     "subtotal": float(subtotal),
     "paymentType": paymentMethod
   }))
