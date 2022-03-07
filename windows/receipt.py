@@ -54,8 +54,7 @@ def receiptWindow(config, parent, c):
 
   # Discount
   #tk.Label(nameFrame, text="Discount", bg="white", anchor="w").pack(fill="x", expand=True)
-  #
-  tk.Label(priceFrame, text=str(f"${round(discount, 2)}"), bg="white", anchor="w").pack(fill="x", expand=True)
+  #tk.Label(priceFrame, text=str(f"${round(discount, 2)}"), bg="white", anchor="w").pack(fill="x", expand=True)
 
   # Total
   tk.Label(nameFrame, text="Total", bg="white", anchor="w", font=constants.SUB_HEADER).pack(fill="x", expand=True, pady=(12, 0))
