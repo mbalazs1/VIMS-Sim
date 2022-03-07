@@ -22,7 +22,7 @@ def onError(c, message):
 
 # Good bye messages
 def goodbye(c):
-  messages = ["Thank you.\nYou won a free coupon", "Goodbye :)"]
+  messages = ["Thank you.", "\nGoodbye :)"]
   typerwriter(c, messages)
   c.stage = screen.CODE
 

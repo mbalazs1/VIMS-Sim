@@ -57,7 +57,7 @@ class Keypad(tk.Frame):
       playSoundEffect(3)
 
       # When no code is entered, return to cart window 
-      if c.screenMessage.get() == "Enter Item Code" and c.stage == screen.CODE:
+      if c.screenMessage.get() == "Enter Code" and c.stage == screen.CODE:
         cartWindow(config)
         return
 
@@ -69,7 +69,7 @@ class Keypad(tk.Frame):
         try:
           screen.BUTTON_CODES[code]
           self.code = code
-          c.screenMessage.set("Enter Quantity")
+          c.screenMessage.set("Enter Amount")
           c.stage = screen.AMOUNT
           c.toggleLock(False)
         except KeyError:
@@ -83,7 +83,7 @@ class Keypad(tk.Frame):
           c.setAmount(int(amount))
           threading.Thread(target=processCode, args=(c, self.code, )).start()
         else:
-          threading.Thread(target=errorMessageResolver, args=(c, "Invalid Quantity",)).start()
+          threading.Thread(target=errorMessageResolver, args=(c, "Invalid Amount",)).start()
           playSoundEffect(4)
 
       # ***** STAGE 3: CONFIRM *****
