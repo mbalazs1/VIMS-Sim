@@ -15,6 +15,6 @@ def typerwriter(c, messages):
       c.screenMessage.set("")
     blink(c, messages[-1])
     sleep(1)
-    c.screenMessage.set("Enter Code")
+    c.screenMessage.set("Enter Item Code")
     c.toggleLock(False)
   threading.Thread(target=startType).start()
