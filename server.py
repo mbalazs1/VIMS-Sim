@@ -6,7 +6,7 @@ from datetime import datetime, date
 from tinydb.operations import increment
 from configs.constants import PORT, HOST
 #from connector import finishAndPay
-import mysql.connector
+
 
 
 couponDB     = TinyDB("database/coupon.json")
@@ -21,11 +21,7 @@ server.listen()
 socket_client, (host, port) = server.accept()
 print(f'🚀 Server is now running on port {PORT} 🚀')
 
-# mySQL machine database:
-cnx = mysql.connector.connect(user='admin', password='password',
-                              host='machines-database.cvczlcshulp9.us-east-2.rds.amazonaws.com',
-                              database='machines_database')
-cnx.close()
+
 
 while True:
   data = socket_client.recv(1024)

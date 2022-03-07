@@ -10,6 +10,7 @@ from components.toolbar import Toolbar
 from utils.typewriter import typerwriter
 
 import configs.screen as screen
+import mysql.connector
 
 productDB = TinyDB("database/product.json")
 accountDB = TinyDB("database/account.json")
@@ -22,7 +23,11 @@ sounds = {
   5: "assets/sounds/coin.wav",
   6: "assets/sounds/receipt.wav"
 }
-
+# mySQL machine database:
+cnx = mysql.connector.connect(user='admin', password='password',
+                              host='machines-database.cvczlcshulp9.us-east-2.rds.amazonaws.com',
+                              database='machines_database')
+cnx.close()
 #  ------- Controller -------
 class Controller(tk.Tk):
   def __init__(self, *args, **kwargs):
