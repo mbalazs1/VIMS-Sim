@@ -69,7 +69,7 @@ class Keypad(tk.Frame):
         try:
           screen.BUTTON_CODES[code]
           self.code = code
-          c.screenMessage.set("Enter Amount")
+          c.screenMessage.set("Enter Quantity")
           c.stage = screen.AMOUNT
           c.toggleLock(False)
         except KeyError:
@@ -83,7 +83,7 @@ class Keypad(tk.Frame):
           c.setAmount(int(amount))
           threading.Thread(target=processCode, args=(c, self.code, )).start()
         else:
-          threading.Thread(target=errorMessageResolver, args=(c, "Invalid Amount",)).start()
+          threading.Thread(target=errorMessageResolver, args=(c, "Invalid Quantity",)).start()
           playSoundEffect(4)
 
       # ***** STAGE 3: CONFIRM *****
