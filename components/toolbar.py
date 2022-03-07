@@ -40,7 +40,7 @@ class Toolbar:
     # Products button
     ToolbarButton(
       self.container,
-      text="Products",
+      text="Update Inventory",
       command=partial(productsWindow, c, parent),
       image=c.productImage,
       bg=constants.PRODUCTS_BG,
@@ -48,11 +48,11 @@ class Toolbar:
     ).pack(fill="x", pady=(0, 4))
 
     # Lottery button
-    ToolbarButton(
-      self.container,
-      text="Lottery",
-      command=partial(lotteryWindow, parent, c),
-      image=c.lotteryImage,
-      bg=constants.LOTTERY_BG,
-      activebackground=constants.LOTTERY_HOVER,
-    ).pack(fill="x", pady=(0, 4))
+    #ToolbarButton(
+    #  self.container,
+    #  text="Lottery",
+    #  command=partial(lotteryWindow, parent, c),
+    #  image=c.lotteryImage,
+    #  bg=constants.LOTTERY_BG,
+    #  activebackground=constants.LOTTERY_HOVER,
+    #).pack(fill="x", pady=(0, 4))

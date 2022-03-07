@@ -9,11 +9,11 @@ def productsWindow(c, parent):
   saveImage = tk.PhotoImage(file="assets/icons/save.png")
 
   newWindow = tk.Toplevel(parent)
-  newWindow.title("Products")
+  newWindow.title("Update Inventory")
   newWindow.resizable(False, False)
   newWindow.configure(background="white")
 
-  tk.Label(newWindow, text="Change the field values to update your goods.", bg="white", anchor="w", padx=10, pady=8).pack(fill="x")
+  tk.Label(newWindow, text="Change the field values to update your inventory.", bg="white", anchor="w", padx=10, pady=8).pack(fill="x")
   
   frame = tk.Frame(newWindow, bg="white")
   frame.pack(expand=True)

@@ -44,12 +44,8 @@ def receiptWindow(config, parent, c):
     amountPaid = round(item['amount'] * float(item['price']), 2)
     tk.Label(priceFrame, text=str(f"${amountPaid} (x{item['amount']})"), bg="white", anchor="w").pack(fill="x", expand=True)
 
-  # Subtotal
-  #tk.Label(nameFrame, text="Subtotal", bg="white", anchor="w").pack(fill="x", expand=True, pady=(12, 0))
-  #tk.Label(priceFrame, text=str(f"${round(subtotal, 2)}"), bg="white", anchor="w").pack(fill="x", expand=True, pady=(8, 0))
-
   # Total
-  tk.Label(nameFrame, text="Total", bg="white", anchor="w", font=constants.SUB_HEADER).pack(fill="x", expand=True, pady=(12, 0))
+  tk.Label(nameFrame, text="Subtotal", bg="white", anchor="w", font=constants.SUB_HEADER).pack(fill="x", expand=True, pady=(12, 0))
   tk.Label(
     priceFrame,
     text=str(f"${round(subtotal - discount, 2)}") if coupon else str(f"${round(subtotal, 2)}"),
