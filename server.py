@@ -37,7 +37,7 @@ while True:
     subtotal = response["subtotal"]
     cart = response["cart"]
     paymentType = response["paymentType"]
-    #error = response["Transaction Failed"]
+
 
     subtotal = subtotal
 
