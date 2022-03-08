@@ -4,11 +4,12 @@ import pickle
 #import tkinter as tk
 #from main import Controller
 #import components.keypad
+import basket as basket
 from tinydb import TinyDB
 from datetime import datetime, date
 #from tinydb.operations import increment
 from configs.constants import PORT, HOST
-#from windows.receipt import receiptWindow
+from windows.cart import basket
 #from connector import finishAndPay
 
 
@@ -60,9 +61,9 @@ while True:
       transactionID = transactionDB.insert({
         "machineID": machineID,
         "timestamp": str(date.today()),
-        #"cart" : ,
-        #"product": product["name"],
-        #"quantity": product["amount"],
+        "cart" : basket,
+        "product": product["name"],
+        "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
        # if response["type"] == "Transaction Failed":
        #   "error" : "Transaction Failed"

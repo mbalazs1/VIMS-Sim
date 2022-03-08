@@ -46,8 +46,6 @@ def processPayment(c, newBalance, paymentMethod):
 # Handle transactions, calculate changes and update account balance 
 def finishAndPay(c, balance, paymentMethod):
   subtotal = c.subtotal.get()
-
-
   client_socket.send(pickle.dumps({
     "type": "createTransaction",
     "cart": c.basket,

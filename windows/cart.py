@@ -105,7 +105,7 @@ def cartWindow(config):
       c.basket = {}
       c.subtotal.set(0)
       c.cart.set(0)
-      c.coupon = None
+
 
     newWindow.destroy()
     newWindow.update()
