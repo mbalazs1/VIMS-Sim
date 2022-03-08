@@ -10,7 +10,7 @@ from datetime import datetime, date
 from configs.constants import PORT, HOST
 #from windows.cart import basket
 #from connector import finishAndPay
-#Test1
+
 
 
 
