@@ -122,14 +122,14 @@ def cartWindow(config):
     newWindow.update()
 
   # Add another button
-  CartButton(
-    top,
-    text="Add Another Soda",
-    command=addAnother,
-    bg=constants.ADD_ANOTHER_BG,
-    activebackground=constants.ADD_ANOTHER_HOVER,
-    image=continueIcon
-  ).pack(side="left", fill="both", expand=True)
+  #CartButton(
+   # top,
+   #text="Add Another Soda",
+   # command=addAnother,
+   # bg=constants.ADD_ANOTHER_BG,
+   # activebackground=constants.ADD_ANOTHER_HOVER,
+   # image=continueIcon
+  #).pack(side="left", fill="both", expand=True)
 
   # Finish and Pay button
   CartButton(

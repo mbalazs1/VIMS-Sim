@@ -60,14 +60,9 @@ while True:
       transactionID = transactionDB.insert({
         "machineID": machineID,
         "timestamp": str(date.today()),
-        #"cart" : basket,
         "product": product["name"],
         "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
-       # if response["type"] == "Transaction Failed":
-       #   "error" : "Transaction Failed"
-       # else:
-       # "change": round(newBalance, 2);
       })
 
       socket_client.send(pickle.dumps({
