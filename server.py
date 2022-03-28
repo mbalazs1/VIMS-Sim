@@ -16,7 +16,7 @@ from configs.constants import PORT, HOST
 
 productDB    = TinyDB("database/product.json")
 accountDB    = TinyDB("database/account.json")
-transactionDB = TinyDB("database/transaction.json", sort_keys=True, indent=4, separators=(',', ': '))
+transactionDB = TinyDB("database/transaction.json", sort_keys=True, indent=4, separators=(',', ':  '))
 machineID    = 100001,
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
