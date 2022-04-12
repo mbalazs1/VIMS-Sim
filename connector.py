@@ -51,7 +51,8 @@ def finishAndPay(c, balance, paymentMethod):
     "cart": c.basket,
     "balance": balance,
     "subtotal": float(subtotal),
-    "paymentType": paymentMethod
+    "paymentType": paymentMethod,
+    "machineBalance": c.machineBalance
   }))
 
   data = client_socket.recv(1024)
@@ -98,10 +99,11 @@ def updateMachineBalance():
   return response
 
 # Update account balance
-def updateAccountBalance(c, newBalance):
+def updateAccountBalance(c, newBalance, machineBalance):
   pickle_object = pickle.dumps({
     "type": "updateAccountBalance",
-    "newBalance": newBalance
+    "newBalance": newBalance,
+    "machineBalance": machineBalance
   })
   client_socket.send(pickle_object)
 
