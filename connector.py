@@ -44,7 +44,7 @@ def processPayment(c, newBalance, paymentMethod):
   threading.Thread(target=goodbye, args=(c,)).start()
 
 # Handle transactions, calculate changes and update account balance 
-def finishAndPay(c, balance, paymentMethod):
+def finishAndPay(c, balance, paymentMethod, machineBalance):
   subtotal = c.subtotal.get()
   client_socket.send(pickle.dumps({
     "type": "createTransaction",
@@ -52,7 +52,7 @@ def finishAndPay(c, balance, paymentMethod):
     "balance": balance,
     "subtotal": float(subtotal),
     "paymentType": paymentMethod,
-    "machineBalance": c.machineBalance
+    "machineBalance": machineBalance
   }))
 
   data = client_socket.recv(1024)
