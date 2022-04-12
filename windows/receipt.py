@@ -6,7 +6,6 @@ from connector import finishAndPay#, updateMachineBalance
 
 def receiptWindow(config, parent, c):
   basket      = c.basket
-
   subtotal    = c.subtotal.get()
   payCashIcon = config["payCashIcon"]
   payCardIcon = config["payCardIcon"]
@@ -56,9 +55,9 @@ def receiptWindow(config, parent, c):
     success = finishAndPay(c, c.coinBalance.get(), "card")
     newWindow.destroy()
     newWindow.update()
-    if success:
-      response = updateMachineBalance()
-      if response["success"]: c.machineBalance.set(c.machineBalance.get() + c.subtotal)
+  #  if success:
+  #    response = updateMachineBalance()
+  #    if response["success"]: c.machineBalance.set(c.machineBalance.get() + c.subtotal)
 
   # Pay with cash method
   def payWithCash():
