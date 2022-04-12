@@ -59,7 +59,7 @@ while True:
         "timestamp": str(date.today()),
         "product": product["name"],
         "quantity": product["amount"],
-        "subtotal": round(response["subtotal"], 2),
+        "subtotal": round(response["subtotal"], 2)
       })
 
       socket_client.send(pickle.dumps({
