@@ -57,7 +57,7 @@ class Controller(tk.Tk):
 
     self.cart          = tk.IntVar(self.container, 0)
     self.coinBalance   = tk.DoubleVar(self.container, coinBalance)
-   # self.machineBalance = tk.IntVar(self.container, machineBalance)
+    self.machineBalance = tk.IntVar(self.container, machineBalance)
     self.screenMessage = tk.StringVar(self.container, "")
 
     self.locked = False
