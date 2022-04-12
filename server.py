@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 import socket
 import pickle
-#import tkinter as tk
-#from main import Controller
-#import components.keypad
+import tkinter as tk
+from main import Controller
+import components.keypad
 from tinydb import TinyDB
 from datetime import datetime, date
 from configs.constants import PORT, HOST
 #from windows.cart import basket
-#from connector import finishAndPay
+from connector import finishAndPay
 
 productDB    = TinyDB("database/product.json")
 accountDB    = TinyDB("database/account.json")
@@ -31,7 +31,7 @@ while True:
   if response["type"] == "createTransaction":
     balance = response["balance"]
     subtotal = response["subtotal"]
-    machineBalance = response["machineBalance"]
+    machineBalance = response["updateMachineBalance"]
     cart = response["cart"]
     paymentType = response["paymentType"]
 
@@ -60,6 +60,7 @@ while True:
         "product": product["name"],
         "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
+        "machine balance": round(response["machineBalance"], 2)
       })
 
       socket_client.send(pickle.dumps({
