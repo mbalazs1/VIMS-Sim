@@ -31,15 +31,16 @@ while True:
   if response["type"] == "createTransaction":
     balance = response["balance"]
     subtotal = response["subtotal"]
-    machineBalance = response["updateMachineBalance"]
     cart = response["cart"]
     paymentType = response["paymentType"]
+    machineBalance = response[machineBalance]
 
 
     subtotal = subtotal
 
     # Calculate the new card payment balance and return the changes if payment method is cash.
     newBalance = balance - subtotal
+    machineBalance = machineBalance + subtotal
 
     # Proceed if user has enough money
     if subtotal <= balance:
