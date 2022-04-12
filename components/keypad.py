@@ -6,7 +6,7 @@ from functools import partial
 import configs.screen as screen
 import configs.constants as constants
 
-from connector import finishAndPay#, updateMachineBalance
+from connector import finishAndPay
 from components.display import Display
 from windows.cart import cartWindow
 from wrappers.keypad import lockerWrapper
