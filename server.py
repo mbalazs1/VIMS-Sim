@@ -33,7 +33,7 @@ while True:
     subtotal = response["subtotal"]
     cart = response["cart"]
     paymentType = response["paymentType"]
-    machineBalance = response[machineBalance]
+    machineBalance = response["machineBalance"]
 
 
     subtotal = subtotal
