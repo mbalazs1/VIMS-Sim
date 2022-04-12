@@ -131,10 +131,10 @@ class Keypad(tk.Frame):
         cash = c.screenMessage.get()
         try:
           success = finishAndPay(c, float(cash), "cash")
-          if success:
+        #  if success:
             # The server returns results, which are then edited on the client side.
-            response = updateMachineBalance()
-            if response["success"]: c.machineBalance.set(c.machineBalance.get() + c.subtotal.get)
+        #    response = updateMachineBalance()
+        #   if response["success"]: c.machineBalance.set(c.machineBalance.get() + c.subtotal.get)
 
         except ValueError:
           threading.Thread(target=errorMessageResolver, args=(c, "Invalid Cash",)).start()
