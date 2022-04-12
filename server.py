@@ -116,6 +116,6 @@ while True:
     success = accountDB.update({"balance": round(response["newBalance"], 2)}, doc_ids=[1])
     socket_client.send(pickle.dumps({ "success": True if success else False }))
 
-  if response["type"] == "updateMachineBalance":
-    success = accountDB.update({"machineBalance": round(response["machineBalance" + "subtotal"], 2)}, doc_ids=[2])
-    socket_client.send(pickle.dumps({ "success": True if success else False }))
+  #if response["type"] == "updateMachineBalance":
+   # success = accountDB.update({"machineBalance": round(response["machineBalance" + "subtotal"], 2)}, doc_ids=[2])
+    #socket_client.send(pickle.dumps({ "success": True if success else False }))
