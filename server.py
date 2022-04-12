@@ -6,7 +6,6 @@ import pickle
 #import components.keypad
 from tinydb import TinyDB
 from datetime import datetime, date
-#from tinydb.operations import increment
 from configs.constants import PORT, HOST
 #from windows.cart import basket
 #from connector import finishAndPay
@@ -32,6 +31,7 @@ while True:
   if response["type"] == "createTransaction":
     balance = response["balance"]
     subtotal = response["subtotal"]
+    machineBalance = response["machineBalance"]
     cart = response["cart"]
     paymentType = response["paymentType"]
 
@@ -116,4 +116,6 @@ while True:
     success = accountDB.update({"balance": round(response["newBalance"], 2)}, doc_ids=[1])
     socket_client.send(pickle.dumps({ "success": True if success else False }))
 
-
+if response["type"] == "updateMachineBalance":
+    success = accountDB.update("machine balance", doc_ids=[2])
+    socket_client.send(pickle.dumps({ "success": True if success else False }))
