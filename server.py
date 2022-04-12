@@ -11,12 +11,9 @@ from configs.constants import PORT, HOST
 #from windows.cart import basket
 #from connector import finishAndPay
 
-
-
-
 productDB    = TinyDB("database/product.json")
 accountDB    = TinyDB("database/account.json")
-transactionDB = TinyDB("database/transaction.json", indent=1, separators=(',', ': '))
+transactionDB = TinyDB("database/transaction.json", indent=1, separators=',')
 machineID    = 100001,
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

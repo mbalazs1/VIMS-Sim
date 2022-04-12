@@ -41,6 +41,7 @@ class Controller(tk.Tk):
     self.container.pack()
 
     coinBalance = accountDB.get(Query().id == 1)["balance"]
+    machineBalance = accountDB.get(Query().id == 2)["machine balance"]
 
     self.products = []
 
@@ -56,6 +57,7 @@ class Controller(tk.Tk):
 
     self.cart          = tk.IntVar(self.container, 0)
     self.coinBalance   = tk.DoubleVar(self.container, coinBalance)
+    self.machineBalance = tk.IntVar(self.container, machineBalance)
     self.screenMessage = tk.StringVar(self.container, "")
 
     self.locked = False

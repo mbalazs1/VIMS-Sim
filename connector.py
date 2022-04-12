@@ -100,4 +100,5 @@ def updateAccountBalance(c, newBalance):
   response = pickle.loads(data)
   if response["success"]:
     c.coinBalance.set(round(newBalance, 2))
+    c.machineBalance.set(round(newBalance + subtotal, 2))
   return response
