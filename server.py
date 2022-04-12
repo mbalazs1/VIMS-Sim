@@ -31,7 +31,7 @@ while True:
   if response["type"] == "createTransaction":
     balance = response["balance"]
     subtotal = response["subtotal"]
-    machineBalance = response["machine balance"]
+    machineBalance = response["machineBalance"]
     cart = response["cart"]
     paymentType = response["paymentType"]
 
