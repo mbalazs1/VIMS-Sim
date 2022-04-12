@@ -41,7 +41,7 @@ class Controller(tk.Tk):
     self.container.pack()
 
     coinBalance = accountDB.get(Query().id == 1)["balance"]
-    machineBalance = accountDB.get(Query().id == 2)["machine balance"]
+    machineBalance = accountDB.get(Query().id == 1)["machineBalance"]
 
     self.products = []
 
