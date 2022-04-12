@@ -2,7 +2,7 @@
 import tkinter as tk
 import configs.screen as screen
 import configs.constants as constants
-from connector import finishAndPay
+from connector import finishAndPay, updateMachineBalance
 
 def receiptWindow(config, parent, c):
   basket      = c.basket
@@ -56,10 +56,13 @@ def receiptWindow(config, parent, c):
     success = finishAndPay(c, c.coinBalance.get(), "card")
     newWindow.destroy()
     newWindow.update()
+    if success:
+      response = updateMachineBalance()
+      if response["success"]: c.machineBalance.set(c.machineBalance.get() + c.subtotal)
 
   # Pay with cash method
   def payWithCash():
-    charge = round(subtotal, 2)#round(subtotal - discount, 2)
+    charge = round(subtotal, 2)
     c.screenMessage.set(f"Please Insert Cash\n${str(charge)}")
     c.stage = screen.PAY_CASH
     newWindow.destroy()
