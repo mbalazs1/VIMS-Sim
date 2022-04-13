@@ -53,7 +53,7 @@ while True:
       if paymentType == "card":
         accountDB.update({ "balance": round(newBalance, 2) }, doc_ids=[1])
 
-      # Log trasaction
+      # Log transaction
       transactionID = transactionDB.insert({
         "machineID": machineID,
         "timestamp": str(date.today()),
