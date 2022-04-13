@@ -88,17 +88,6 @@ def getInventory():
   response = pickle.loads(data)
   return response
 
-# Update machine balance after any purchases
-#def updateMachineBalance():
-#  pickle_object = pickle.dumps({
-#   "type": "updateMachineBalance",
-#  })
-#  client_socket.send(pickle_object)
-#
-#  data = client_socket.recv(1024)
-#  response = pickle.loads(data)
-#  return response
-
 # Update account balance
 def updateAccountBalance(c, newBalance):
   pickle_object = pickle.dumps({
