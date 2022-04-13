@@ -6,13 +6,17 @@ import pickle
 #import components.keypad
 from tinydb import TinyDB
 from datetime import datetime, date
+#from tinydb.operations import increment
 from configs.constants import PORT, HOST
 #from windows.cart import basket
 #from connector import finishAndPay
 
+
+
+
 productDB    = TinyDB("database/product.json")
 accountDB    = TinyDB("database/account.json")
-transactionDB = TinyDB("database/transaction.json", indent=1, separators=',')
+transactionDB = TinyDB("database/transaction.json")
 machineID    = 100001,
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -33,8 +37,7 @@ while True:
     subtotal = response["subtotal"]
     cart = response["cart"]
     paymentType = response["paymentType"]
-
-
+    #error = response["Transaction Failed"]
 
     subtotal = subtotal
 
@@ -53,7 +56,7 @@ while True:
       if paymentType == "card":
         accountDB.update({ "balance": round(newBalance, 2) }, doc_ids=[1])
 
-      # Log transaction
+      # Log trasaction
       transactionID = transactionDB.insert({
         "machineID": machineID,
         "timestamp": str(date.today()),
@@ -81,7 +84,7 @@ while True:
     sizes   = []
     colors  = []
 
-    # arguments required for matlibplot library 
+    # arguments required for matlibplot library
     # When the stock is low, it is red; when it is moderately low, it is orange; and when the stock is under control, it is green.
     for product in productDB:
       labels.append(product["name"])
@@ -115,7 +118,3 @@ while True:
   if response["type"] == "updateAccountBalance":
     success = accountDB.update({"balance": round(response["newBalance"], 2)}, doc_ids=[1])
     socket_client.send(pickle.dumps({ "success": True if success else False }))
-
-  #if response["type"] == "updateMachineBalance":
-   # success = accountDB.update({"machineBalance": round(response["machineBalance" + "subtotal"], 2)}, doc_ids=[1])
-    #socket_client.send(pickle.dumps({ "success": True if success else False }))
