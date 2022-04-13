@@ -2,7 +2,7 @@
 import tkinter as tk
 import configs.screen as screen
 import configs.constants as constants
-from connector import finishAndPay#, updateMachineBalance
+from connector import finishAndPay
 
 def receiptWindow(config, parent, c):
   basket      = c.basket
