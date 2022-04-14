@@ -64,7 +64,7 @@ class Controller(tk.Tk):
 
 
     # Start with a welcome message
-    typerwriter(self, ["Welcome"])  #to the\nVIMS Vending \nMachine Simulator
+    typerwriter(self, ["Welcome"])
 
     for product in productDB.all():
       self.products.append(ProductItem(
