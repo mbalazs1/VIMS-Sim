@@ -41,7 +41,7 @@ while True:
 
     #machineBalance = transactionDB.all({"subtotal" round(subtotal, 2) }, doc_ids=[-1])
     #machineBalance = transactionDB.get({"subtotal"},doc_id=transactionDB.all()[-1])
-    machineBalance = transactionDB.all()[-1]["subtotal"]
+    machineBalance = transactionDB.all()[-1]["Machine Balance"]
     print('subtotal', machineBalance)
 
     subtotal = subtotal
