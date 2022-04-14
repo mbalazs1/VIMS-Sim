@@ -40,7 +40,9 @@ while True:
     paymentType = response["paymentType"]
 
     #machineBalance = transactionDB.all({"subtotal" round(subtotal, 2) }, doc_ids=[-1])
-    machineBalance = transactionDB.get({"subtotal"},doc_id=transactionDB._last_id)
+    #machineBalance = transactionDB.get({"subtotal"},doc_id=transactionDB.all()[-1])
+    machineBalance = transactionDB.all()[-1]["subtotal"]
+    print('subtotal', machineBalance)
 
     subtotal = subtotal
 
