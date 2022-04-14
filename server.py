@@ -62,7 +62,7 @@ while True:
       # Log trasaction
 
       transactionID = transactionDB.insert({
-        "machineID": int(machineID),
+        "machineID": str(machineID),
         "timestamp": timestamp,
         "product": product["name"],
         "quantity": product["amount"],
