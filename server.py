@@ -5,7 +5,7 @@ import pickle
 #from main import Controller
 #import components.keypad
 from tinydb import TinyDB
-from datetime import datetime
+from datetime import datetime, date
 #from tinydb.operations import increment
 from configs.constants import PORT, HOST
 #from windows.cart import basket
@@ -18,7 +18,6 @@ productDB    = TinyDB("database/product.json")
 accountDB    = TinyDB("database/account.json")
 transactionDB = TinyDB("database/transaction.json")
 machineID    = 100001,
-dt = datetime.now()
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
@@ -38,7 +37,7 @@ while True:
     subtotal = response["subtotal"]
     cart = response["cart"]
     paymentType = response["paymentType"]
-
+    #error = response["Transaction Failed"]
 
     subtotal = subtotal
 
@@ -60,7 +59,7 @@ while True:
       # Log trasaction
       transactionID = transactionDB.insert({
         "machineID": machineID,
-        "timestamp": datetime.now(dt),
+        "timestamp": str(date.today()),
         "product": product["name"],
         "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
