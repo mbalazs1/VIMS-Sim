@@ -13,7 +13,7 @@ def typerwriter(c, messages):
         sleep(0.08)
       if len(messages) > 0: sleep(1)
       c.screenMessage.set("")
-    #blink(c, messages[-1])
+    blink(c, messages[-1])
     sleep(1)
     c.screenMessage.set("Enter Item Code")
     c.toggleLock(False)
