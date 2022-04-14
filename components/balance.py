@@ -15,5 +15,5 @@ class Balance(tk.Frame):
     self.coinFrame = tk.Frame(self, height=20, width=70, bg="white")
     self.coinFrame.pack(pady=(0, 4), side="left")
 
-    tk.Label(self.coinFrame, image=c.coin, bg="white").pack(side="left")
-    tk.Label(self.coinFrame, textvariable=c.machineBalance, bg="white").pack(side="right")
+    #tk.Label(self.coinFrame, image=c.coin, bg="white").pack(side="left")
+    #tk.Label(self.coinFrame, textvariable=c.machineBalance, bg="white").pack(side="right")
