@@ -37,7 +37,7 @@ while True:
     subtotal = response["subtotal"]
     cart = response["cart"]
     paymentType = response["paymentType"]
-    #error = response["Transaction Failed"]
+
 
     subtotal = subtotal
 
@@ -59,7 +59,7 @@ while True:
       # Log trasaction
       transactionID = transactionDB.insert({
         "machineID": machineID,
-        "timestamp": str(date.today()),
+        "timestamp": datetime.now(),
         "product": product["name"],
         "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
