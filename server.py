@@ -39,7 +39,8 @@ while True:
     cart = response["cart"]
     paymentType = response["paymentType"]
 
-    #machineBalance = transactionDB.get({"subtotal" round(subtotal, 2) }, doc_ids=[1])
+    #machineBalance = transactionDB.all({"subtotal" round(subtotal, 2) }, doc_ids=[-1])
+    machineBalance = transactionDB.get({"subtotal"},doc_id=transactionDB._last_id)
 
     subtotal = subtotal
 
@@ -66,8 +67,8 @@ while True:
         "product": product["name"],
         "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
-        "change": round(newBalance, 2)
-       # "Machine Balance": round(machineBalance)
+        "change": round(newBalance, 2),
+        "Machine Balance": (round(machineBalance)+round(response["subtotal"], 2))
       })
 
       socket_client.send(pickle.dumps({
