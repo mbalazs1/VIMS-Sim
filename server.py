@@ -18,7 +18,7 @@ productDB    = TinyDB("database/product.json")
 accountDB    = TinyDB("database/account.json")
 transactionDB = TinyDB("database/transaction.json")
 machineID    = 100001,
-
+dt = datetime.now()
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 server.listen()
@@ -59,7 +59,7 @@ while True:
       # Log trasaction
       transactionID = transactionDB.insert({
         "machineID": machineID,
-        "timestamp": str(date.today()),
+        "timestamp": str(datetime.now(dt)),
         "product": product["name"],
         "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
