@@ -4,7 +4,7 @@ import pickle
 #import tkinter as tk
 #from main import Controller
 #import components.keypad
-from tinydb import TinyDB
+from tinydb import TinyDB, Query
 from datetime import datetime, date
 #from tinydb.operations import increment
 from configs.constants import PORT, HOST
@@ -19,6 +19,7 @@ accountDB    = TinyDB("database/account.json")
 transactionDB = TinyDB("database/transaction.json")
 machineID    = 100001,
 dt = datetime.now()
+
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 server.listen()
@@ -38,7 +39,7 @@ while True:
     cart = response["cart"]
     paymentType = response["paymentType"]
 
-    #machineBalance = transactionDB.get({"subtotal": round(subtotal, 2) }, doc_ids=[1])
+    #machineBalance = transactionDB.get({"subtotal" round(subtotal, 2) }, doc_ids=[1])
 
     subtotal = subtotal
 
@@ -65,6 +66,7 @@ while True:
         "product": product["name"],
         "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
+        "change": round(newBalance, 2)
        # "Machine Balance": round(machineBalance)
       })
 
