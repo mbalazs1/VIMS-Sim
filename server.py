@@ -67,7 +67,7 @@ while True:
         "product": product["name"],
         "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
-        "Machine Balance": (round(machineBalance)+round(response["subtotal"], 2))
+        "Machine Balance": (machineBalance + response["subtotal"])
       })
 
       socket_client.send(pickle.dumps({
