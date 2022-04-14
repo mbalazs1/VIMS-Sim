@@ -12,8 +12,9 @@ from utils.typewriter import typerwriter
 import configs.screen as screen
 import mysql.connector
 
-productDB = TinyDB("database/product.json")
-accountDB = TinyDB("database/account.json")
+productDB    = TinyDB("database/product.json", separators=(',', ': '), indent = 1)
+accountDB    = TinyDB("database/account.json")
+transactionDB = TinyDB("database/transaction.json", separators=(',', ': '), indent = 1)
 
 sounds = {
   1: "assets/sounds/clear.wav",
@@ -41,7 +42,7 @@ class Controller(tk.Tk):
     self.container.pack()
 
     coinBalance = accountDB.get(Query().id == 1)["balance"]
-
+    machineBalance = transactionDB.all()[-1]["Machine Balance"]
     self.products = []
 
     self.selected = None
@@ -56,6 +57,7 @@ class Controller(tk.Tk):
 
     self.cart          = tk.IntVar(self.container, 0)
     self.coinBalance   = tk.DoubleVar(self.container, coinBalance)
+    self.machineBalance = tk.DoubleVar(self.container, machineBalance)
     self.screenMessage = tk.StringVar(self.container, "")
 
     self.locked = False
