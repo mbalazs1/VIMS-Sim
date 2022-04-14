@@ -37,7 +37,8 @@ while True:
     subtotal = response["subtotal"]
     cart = response["cart"]
     paymentType = response["paymentType"]
-    #error = response["Transaction Failed"]
+
+    machineBalance = transactionDB.get({"subtotal": round(subtotal, 2) }, doc_ids = [1])
 
     subtotal = subtotal
 
@@ -57,12 +58,14 @@ while True:
         accountDB.update({ "balance": round(newBalance, 2) }, doc_ids=[1])
 
       # Log trasaction
+
       transactionID = transactionDB.insert({
         "machineID": machineID,
         "timestamp": str(datetime.now()),
         "product": product["name"],
         "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
+        "Machine Balance": round(machineBalance)
       })
 
       socket_client.send(pickle.dumps({
