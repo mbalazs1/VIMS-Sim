@@ -38,7 +38,7 @@ while True:
     cart = response["cart"]
     paymentType = response["paymentType"]
 
-    machineBalance = transactionDB.get({"subtotal": round(subtotal, 2) }, doc_ids = [1])
+    machineBalance = transactionDB.get({"subtotal": round(subtotal, 2) }, doc_ids=[1])
 
     subtotal = subtotal
 
