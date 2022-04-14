@@ -18,7 +18,8 @@ productDB    = TinyDB("database/product.json")
 accountDB    = TinyDB("database/account.json")
 transactionDB = TinyDB("database/transaction.json", separators=(',', ': '), indent = 1)
 machineID    = 100001,
-dt = datetime.now()
+now = datetime.now()
+timestamp = now.strftime("%m/%d/%Y, %H:%M:%S")
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
@@ -39,10 +40,7 @@ while True:
     cart = response["cart"]
     paymentType = response["paymentType"]
 
-    #machineBalance = transactionDB.all({"subtotal" round(subtotal, 2) }, doc_ids=[-1])
-    #machineBalance = transactionDB.get({"subtotal"},doc_id=transactionDB.all()[-1])
     machineBalance = transactionDB.all()[-1]["Machine Balance"]
-    print('subtotal', machineBalance)
 
     subtotal = subtotal
 
@@ -64,12 +62,11 @@ while True:
       # Log trasaction
 
       transactionID = transactionDB.insert({
-        "machineID": machineID,
-        "timestamp": str(datetime.now()),
+        "machineID": int(machineID),
+        "timestamp": timestamp,
         "product": product["name"],
         "quantity": product["amount"],
         "subtotal": round(response["subtotal"], 2),
-        "change": round(newBalance, 2),
         "Machine Balance": (round(machineBalance)+round(response["subtotal"], 2))
       })
 
