@@ -63,7 +63,7 @@ while True:
 
       # Log trasaction
 
-      transactionID = transactionDB.insert({
+      transactionID = transactionDB.write({
         "machineID": str(machineID),
         "timestamp": timestamp,
         "product": product["name"],
@@ -71,14 +71,14 @@ while True:
         "subtotal": round(response["subtotal"], 2),
         "Machine Balance": (machineBalance + response["subtotal"])
       })
-      transactionID2 = lasttransactionDB.write({
-        "machineID": str(machineID),
-        "timestamp": timestamp,
-        "product": product["name"],
-        "quantity": product["amount"],
-        "subtotal": round(response["subtotal"], 2),
-        "Machine Balance": (machineBalance + response["subtotal"])
-      })
+      #transactionID2 = lasttransactionDB.write({
+       # "machineID": str(machineID),
+        #"timestamp": timestamp,
+        #"product": product["name"],
+        #"quantity": product["amount"],
+        #"subtotal": round(response["subtotal"], 2),
+        #"Machine Balance": (machineBalance + response["subtotal"])
+      #})
 
       socket_client.send(pickle.dumps({
         "success": True,
