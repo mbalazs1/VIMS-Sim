@@ -43,7 +43,6 @@ while True:
     paymentType = response["paymentType"]
 
     machineBalance = transactionDB.all()[-1]["Machine Balance"]
-    #lasttransaction = lasttransactionDB.all()[-1]["Machine Balance"]
 
     subtotal = subtotal
 
@@ -72,9 +71,6 @@ while True:
         "subtotal": round(response["subtotal"], 2),
         "Machine Balance": (machineBalance + response["subtotal"])
       })
-      #transactionID2 = lasttransactionDB.insert({
-      #  "Machine Balance": (lasttransaction + response["subtotal"])
-      #})
       print(machineBalance, file=open("machinetotal.txt", "w"))
       print(product["name"], file=open("itemsold.txt", "w"))
 
