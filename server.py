@@ -17,6 +17,8 @@ from configs.constants import PORT, HOST
 productDB    = TinyDB("database/product.json", separators=(',', ': '), indent = 1)
 accountDB    = TinyDB("database/account.json")
 transactionDB = TinyDB("database/transaction.json", separators=(',', ': '), indent = 1)
+lasttransactionDB = TinyDB("database/lasttransaction.json")
+
 machineID    = 100001
 now = datetime.now()
 timestamp = now.strftime("%m/%d/%Y, %H:%M:%S")
@@ -62,6 +64,14 @@ while True:
       # Log trasaction
 
       transactionID = transactionDB.insert({
+        "machineID": str(machineID),
+        "timestamp": timestamp,
+        "product": product["name"],
+        "quantity": product["amount"],
+        "subtotal": round(response["subtotal"], 2),
+        "Machine Balance": (machineBalance + response["subtotal"])
+      })
+      transactionID2 = lasttransactionDB.write({
         "machineID": str(machineID),
         "timestamp": timestamp,
         "product": product["name"],
