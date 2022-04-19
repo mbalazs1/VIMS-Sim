@@ -73,7 +73,6 @@ while True:
         "Machine Balance": (machineBalance + response["subtotal"])
       })
       transactionID2 = lasttransactionDB.insert({
-        "product": product["name"],
         "Machine Balance": (machineBalance + response["subtotal"])
       })
 
