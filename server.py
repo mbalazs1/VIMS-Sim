@@ -75,7 +75,7 @@ while True:
       #transactionID2 = lasttransactionDB.insert({
       #  "Machine Balance": (lasttransaction + response["subtotal"])
       #})
-      print(machineBalance, product["name"], file=open("machinetotal.txt", "a"))
+      print(machineBalance, file=open("machinetotal.txt", "a"))
       print(product["name"], file=open("itemsold.txt", "a"))
 
       socket_client.send(pickle.dumps({
