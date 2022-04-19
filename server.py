@@ -43,7 +43,7 @@ while True:
     paymentType = response["paymentType"]
 
     machineBalance = transactionDB.all()[-1]["Machine Balance"]
-    lasttransaction = lasttransactionDB.all()[-1]["Machine Balance"]
+    #lasttransaction = lasttransactionDB.all()[-1]["Machine Balance"]
 
     subtotal = subtotal
 
@@ -72,9 +72,10 @@ while True:
         "subtotal": round(response["subtotal"], 2),
         "Machine Balance": (machineBalance + response["subtotal"])
       })
-      transactionID2 = lasttransactionDB.insert({
-        "Machine Balance": (machineBalance + response["subtotal"])
-      })
+      #transactionID2 = lasttransactionDB.insert({
+      #  "Machine Balance": (lasttransaction + response["subtotal"])
+      #})
+      print(machineBalance, product["name"], file=open("output.txt", "a"))
 
       socket_client.send(pickle.dumps({
         "success": True,
