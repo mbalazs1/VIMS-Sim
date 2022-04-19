@@ -43,7 +43,7 @@ while True:
     paymentType = response["paymentType"]
 
     machineBalance = transactionDB.all()[-1]["Machine Balance"]
-    lasttransaction = lasttransactionDB.all()[-1]["Machine Balance", product["name"]]
+    lasttransaction = lasttransactionDB.all()[-1]["Machine Balance"]
 
     subtotal = subtotal
 
