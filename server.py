@@ -30,8 +30,8 @@ socket_client, (host, port) = server.accept()
 print(f'Server is running on port {PORT}')
 
 
-def execfile(rdsUpdater):
-  pass
+#def execfile(rdsUpdater):
+#  pass
 
 
 while True:
@@ -76,8 +76,7 @@ while True:
       })
       print(machineBalance, file=open("machinetotal.txt", "w"))
       print(product["name"], file=open("itemsold.txt", "w"))
-      execfile('rdsUpdater.py')
-
+      exec(open("rdsUpdater.py").read())
       socket_client.send(pickle.dumps({
         "success": True,
         "balance": round(newBalance, 2),
