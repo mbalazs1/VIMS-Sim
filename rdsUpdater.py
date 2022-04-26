@@ -3,6 +3,8 @@
 #import pymysql.cursors
 
 # Open file and grab last item sold
+import pymysql as pymysql
+
 f = open('itemsold.txt', 'r')
 item_sold = f.read()
 f.close()
